@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
-    //Animation Rotate object
-    void Update()
+    
+    private void OnTriggerEnter(Collider other)
     {
-        transform.Rotate(0.6f,0.0f,0.0f);
-    }
-
-    public void OnCollisionEnter(Collision collision)
-    {
-        
+        if (other.tag == "Player")
+        {
+            GameController.Instance.Scoring();
+            Destroy(this.gameObject);
+        }
     }
 }

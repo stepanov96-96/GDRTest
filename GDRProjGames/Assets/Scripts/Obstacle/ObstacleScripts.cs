@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstacleScripts : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //player destruction
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        if (other.tag == "Player")                   
+            GameController.Instance.DestroyPlayer();
         
     }
 }
